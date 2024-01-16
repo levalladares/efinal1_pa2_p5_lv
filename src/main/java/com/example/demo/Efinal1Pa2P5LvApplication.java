@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.repository.modelo.CuentaBancaria;
 import com.example.demo.repository.modelo.Propietario;
+import com.example.demo.repository.modelo.Transferencia;
 import com.example.demo.service.ICuentaBancariaService;
 import com.example.demo.service.ITransferenciaService;
 
@@ -39,7 +41,7 @@ public class Efinal1Pa2P5LvApplication implements CommandLineRunner{
 		c1.setPropietario(p1);
 		c1.setSaldo(new BigDecimal(100));
 		c1.setTipo("ahorros");
-		this.bancariaService.guardar(c1);
+		//this.bancariaService.guardar(c1);
 		
 		Propietario p2 = new Propietario();
 		p2.setNombre("Jose");
@@ -51,7 +53,7 @@ public class Efinal1Pa2P5LvApplication implements CommandLineRunner{
 		c2.setPropietario(p2);
 		c2.setSaldo(new BigDecimal(50));
 		c2.setTipo("ahorros");
-		this.bancariaService.guardar(c2);
+		//this.bancariaService.guardar(c2);
 		
 		this.iTransferenciaService.guardar("123456", "654321", new BigDecimal(20));
 		
@@ -62,6 +64,11 @@ public class Efinal1Pa2P5LvApplication implements CommandLineRunner{
 		System.out.println(cta2.getSaldo());
 		
 		
+		System.out.println("Imprimir");
+		List<Transferencia> trasnferencias =this.iTransferenciaService.buscarTodas();
+		for (Transferencia t : trasnferencias) {
+			System.out.println(t);
+		}
 		
 	}
 

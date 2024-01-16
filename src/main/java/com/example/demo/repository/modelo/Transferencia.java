@@ -31,7 +31,7 @@ public class Transferencia {
 	
 	@ManyToOne
 	@JoinColumn(name = "trans_id_ctao")
-	private CuentaBancaria ctaOrigen;
+	private CuentaBancaria cuentaBancaria;
 	
 	@ManyToOne
 	@JoinColumn(name = "trans_id_ctad")
@@ -72,11 +72,11 @@ public class Transferencia {
 	}
 
 	public CuentaBancaria getCtaOrigen() {
-		return ctaOrigen;
+		return cuentaBancaria;
 	}
 
 	public void setCtaOrigen(CuentaBancaria ctaOrigen) {
-		this.ctaOrigen = ctaOrigen;
+		this.cuentaBancaria = ctaOrigen;
 	}
 
 	public CuentaBancaria getCtadestino() {
@@ -87,6 +87,13 @@ public class Transferencia {
 		this.ctadestino = ctadestino;
 	}
 
+	@Override
+	public String toString() {
+		return "Transferencia [id=" + id + ", fechaT=" + fechaT + ", montoT=" + montoT + ", comisionT=" + comisionT
+				+ ", cuentaBancaria=" + cuentaBancaria + ", ctadestino=" + ctadestino + "]";
+	}
+
+	
 	
 
 

@@ -33,9 +33,6 @@ public class Propietario {
 	@JoinColumn(name = "prop_id_cuentaBancaria")
 	private CuentaBancaria cuentaBancaria;
 	
-	@OneToMany(mappedBy = "propietario")
-	private List<Transferencia> transferencias;
-	
 	
 	//GET Y SET 
 
